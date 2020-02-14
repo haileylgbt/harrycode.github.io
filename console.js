@@ -46,6 +46,8 @@ function runLine(code) {
     this.args = code.split(" ");
     if(this.args[this.args.length-1] != ","){
 
+
+        newCommand("sudo", "print('You're already root!)")
         newCommand("clear", "clear()")
         newCommand("milliunix", "print(Date.now())")
         newCommand("unix", "print(Math.round(Date.now() / 1000))")
@@ -53,8 +55,7 @@ function runLine(code) {
         newCommand("rand", "print(getRandomInt(this.args[1], this.args[2]))")
         newCommand("exit", "history.go(-1)")
         newCommand("sitewarp", "window.location.href = this.args[1] + '.html'")
-        newCommand("help", "print('Showing help:\nclear - clears the terminal.\nunix - shows how long its been since January 1, 1970 (midnight) in seconds.\nmilliunix - same as unix but in milliseconds\ndate - shows the current date.\nrand <min> <max> - currently broken.\nexit - sends you back to the website.\nsitewarp <page> - can send you to any page on the website (if you know what the html file for it is called).')")
-
+        
         
     }else{
       [code.length] = this.args.slice(0, this.args.length-1).join(" ");
@@ -93,7 +94,7 @@ function createinput(prompt) {
     document.body.appendChild(this.input);
 }
 
-printMulti(["Loaded version 1.0 'Harriet'"]);
+printMulti(["Loaded version 1.1 'Harriet'"]);
 
 window.setInterval(function() {
     if (document.getElementById("input") === null) {
