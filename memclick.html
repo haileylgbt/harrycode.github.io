@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Memory Clicker</title>
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		<link rel="stylesheet" type="text/css" href="memclick.css" />
+		<link rel="icon" href="http://giantcursor.com/cursor.png">
+		<script type="text/javascript">
+		var Bits = 0;
+		var Bytes = 0;
+		function BitClick(number){
+		    Bits = Bits + number;
+		    document.getElementById("Bits").innerHTML = Bits;
+		};
+
+		function ByteGet(number){
+		    Bytes = Bytes + number;
+		    document.getElementById("Bytes").innerHTML = Bytes;
+		};
+
+		function convertBitToByte() {
+		if(Bits >= 100){
+			ByteGet(1);
+			BitClick(-100);
+			};
+		};
+
+		var Biters = 0;
+
+		function buyBiter(){
+		    var BiterCost = Math.floor(10 * Math.pow(1.1,Biters));     //works out the cost of this Biter
+		    if(Bits >= BiterCost){                                    //checks that the player can afford the Biter
+		        Biters = Biters + 1;                                   //increases number of Biters
+		    	Bits = Bits - BiterCost;                          //removes the Bits spent
+		        document.getElementById('Biters').innerHTML = Biters;  //updates the number of Biters for the user
+		        document.getElementById('Bits').innerHTML = Bits;  //updates the number of Bits for the user
+		    };
+		    var nextCost = Math.floor(10 * Math.pow(1.1,Biters));       //works out the cost of the next Biter
+		    document.getElementById('BiterCost').innerHTML = nextCost;  //updates the Biter cost for the user
+		};
+
+		var Byters = 0;
+
+		function buyByter(){
+		    var ByterCost = Math.floor(20 * Math.pow(1.1,Byters));     //works out the cost of this Byter
+		    if(Bits >= ByterCost){                                    //checks that the player can afford the Byter
+		        Byters = Byters + 1;                                   //increases number of Byters
+		    	Bits = Bits - ByterCost;                          //removes the Bits spent
+		        document.getElementById('Byters').innerHTML = Byters;  //updates the number of Byters for the user
+		        document.getElementById('Bits').innerHTML = Bits;  //updates the number of Bits for the user
+		    };
+		    var nextCost = Math.floor(20 * Math.pow(1.1,Byters));       //works out the cost of the next Byter
+		    document.getElementById('ByterCost').innerHTML = nextCost;  //updates the Byter cost for the user
+		};
+
+		var r2Byters = 0;
+
+		function buyr2Byter(){
+		    var r2ByterCost = Math.floor(50 * Math.pow(1.1,r2Byters));     //works out the cost of this r2Byter
+		    if(Bits >= r2ByterCost){                                    //checks that the player can afford the r2Byter
+		        r2Byters = r2Byters + 1;                                   //increases number of r2Byters
+		    	Bits = Bits - r2ByterCost;                          //removes the Bytes spent
+		        document.getElementById('r2Byters').innerHTML = r2Byters;  //updates the number of r2Byters for the user
+		        document.getElementById('Bytes').innerHTML = Bits;  //updates the number of Bytes for the user
+		    };
+		    var nextCost = Math.floor(50 * Math.pow(1.1,r2Byters));       //works out the cost of the next r2Byter
+		    document.getElementById('r2ByterCost').innerHTML = nextCost;  //updates the r2Byter cost for the user
+		};
+
+		var Overclockers = 0;
+
+		function buyOverclocker(){
+		    var OverclockerCost = Math.floor(100 * Math.pow(1.12,Overclockers));     //works out the cost of this r2Byter
+		    if(Bytes >= OverclockerCost){                                    //checks that the player can afford the r2Byter
+		        Overclockers = Overclockers + 1;                                   //increases number of r2Byters
+		    	Bytes = Bytes - OverclockerCost;                          //removes the Bytes spent
+		        document.getElementById('Overclockers').innerHTML = Overclockers;  //updates the number of r2Byters for the user
+		        document.getElementById('Bytes').innerHTML = Bytes;  //updates the number of Bytes for the user
+		    };
+		    var nextCost = Math.floor(100 * Math.pow(1.12,Overclockers));       //works out the cost of the next r2Byter
+		    document.getElementById('OverclockerCost').innerHTML = nextCost;  //updates the r2Byter cost for the user
+		};
+
+		function ByterFuse(){
+		    var neededForFuse = 5;     //works out the cost of this r2Byter
+		    if(Byters >= neededForFuse){                                    //checks that the player can afford the r2Byter
+		        r2Byters = r2Byters + 1;                                 //increases number of r2Byters
+		    	Byters = Byters - neededForFuse;                          //removes the Bytes spent
+		        document.getElementById('r2Byters').innerHTML = r2Byters;  //updates the number of r2Byters for the user
+		        document.getElementById('Byters').innerHTML = Byters;  //updates the number of Bytes for the user
+		    };
+			};
+
+
+			//particle object
+			function Particle(x,y) {
+
+				this.type="circle";
+				this.x=x;
+				this.y=y;
+				this.size=0.5;
+				this.opacity=rand(0.5,10);
+				this.moveSpeed=this.opacity/10 * 2;
+				this.modifier=0;
+			};
+
+			Particle.prototype.draw=function() {
+				this.x-=(this.moveSpeed+this.modifier);
+				if (this.x < 0) this.x=screenWidth;
+				ctx.save();
+				ctx.beginPath();
+				ctx.globalAlpha=this.opacity/10;
+				ctx.fillStyle="white";
+				ctx.arc(this.x,this.y,this.size,0,2*Math.PI,false);
+				ctx.fill();
+				ctx.restore();
+
+			};
+
+
+		window.setInterval(function(){
+
+			BitClick(Biters);
+			BitClick((Byters * 2));
+			ByteGet(r2Byters);
+
+
+		}, (1000 - (Overclockers * 10)));
+
+		</script>
+		<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-100015245-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+	</head>
+	<body>
+		<ul class="navbar">
+			<li><a href="index.html">home</a></li>
+			<li><a href="about.html">about me</a></li>
+			<li><a href="memclick.html">> memory clicker <</a></li>
+			<li><a href="console.html">h-dos</a></li>
+			<li><a href="snek.html">snek</a></li>
+		</ul>
+		<h1>Memory Clicker</h1>
+		<div class="gui">
+				<br />
+				<button onclick="BitClick(1)">Bite</button>
+				<br />
+				Bits: <span id="Bits">0</span>
+				<br />
+				<button onclick="convertBitToByte()">Convert 100 bits to 1 Byte</button>
+				<br />
+				Bytes: <span id="Bytes">0</span>
+				<br />
+				<button onclick="buyBiter()" id="bitergetter">Buy Biter</button>
+				<br />
+				Biters: <span id="Biters">0</span>
+				<br />
+				Biter Cost: <span id="BiterCost">10</span>
+				<br />
+				<button onclick="buyByter()" id="Bytergetter">Buy Byter</button>
+				<br />
+				Byters: <span id="Byters">0</span>
+				<br />
+				Byter Cost: <span id="ByterCost">20</span>
+				<br />
+				<button onclick="buyr2Byter()" id="r2Bytergetter">Buy Revision 2 Byter</button>
+				<br />
+				Revision 2 Byters: <span id="r2Byters">0</span>
+				<br />
+				Revision 2 Byter Cost: <span id="r2ByterCost">50</span>
+				<br />
+				<button onclick="ByterFuse()">Sacrifice 5 Byters for 1 Revision 2 Byter</button>
+				<br />
+				<button onclick="buyOverclocker()" id="Overclockergetter">Buy Overclocker</button>
+				<br />
+				Overclockers: <span id="Overclockers">0</span>
+				<br />
+				Overclocker Cost: <span id="Overclockers">100</span>
+				<br />
+				<p><a href="story.html">Click here to see the story!</a></p>
+	</div>
+	</body>
+</html>

@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono&display=swap');
+
+html, body {
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+}
+body {
+    background-color: black;
+    color: white;
+    font-family: Ubuntu Mono;
+    font-size: 1.5vw;
+    height: 90vh;
+    width: 90vw;
+    word-wrap: break-word;
+    padding-left: 25px;
+}
+input[type="text"] {
+    background-color: black;
+    color: white;
+    font-family: Ubuntu Mono;
+    font-size: 1.5vw;
+    border: none;
+    font-style: italic;
+}
+p.code {
+    margin: 0;
+}
+p.return {
+    margin: 0;
+    color: lime;
+}
+a.link {
+    margin: 0;
+    color: rgb(100, 255, 100);
+}
+br {
+    content: "";
+}
+input[type="text"]:focus {
+    outline: 0;
+}

@@ -1,0 +1,36 @@
+/* import the best font in the world because not everyone has it installed */
+@import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
+
+/* this is where most of the colouring and styling happens */
+body {
+    font-family: Ubuntu;
+    padding-left: 11em;
+    color: #ffffff;
+    background-color: #2C2F33;
+}
+
+/* telling it where we want to put our navbar */
+
+ul.navbar {
+    position: absolute;
+    top: 2em;
+    left: 1em;
+    width: 9em;
+}
+
+p {
+    flex-wrap: wrap;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+a {
+    text-decoration: none;
+    color: cyan;
+}
+
+abbr {
+    text-decoration: none;
+}
