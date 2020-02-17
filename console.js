@@ -46,8 +46,17 @@ function runLine(code) {
     this.args = code.split(" ");
     if(this.args[this.args.length-1] != ","){
 
+        newCommand("help", 
+        `
+            print("showing help:")
+            print("clear - clears the terminal")
+            print("unix - shows how many seconds it has been since the first of janurary 1970")
+            print("milliunix - shows how many milliseconds it has been since the first of janurary 1970")
+            print("date - shows the current date")
+            print("rand <min> <max> - prints a random number between <min> and <max>. (currently broken)")
 
-        newCommand("sudo", "print('You're already root!)")
+        `)
+        newCommand("sudo", `print("You're already root!")`)
         newCommand("clear", "clear()")
         newCommand("milliunix", "print(Date.now())")
         newCommand("unix", "print(Math.round(Date.now() / 1000))")
@@ -94,7 +103,7 @@ function createinput(prompt) {
     document.body.appendChild(this.input);
 }
 
-printMulti(["Loaded version 1.1 'Harriet'"]);
+printMulti(["Loaded version 2.0 'Monique'"]);
 
 window.setInterval(function() {
     if (document.getElementById("input") === null) {
