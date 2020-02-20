@@ -2,8 +2,7 @@ var inputDest = "";
 var code = [];
 
 function getRandomInt(min, max) {
-    max++;
-    return Math.floor(Math.random() * (max - min) + min);
+    return Math.round(Math.random() * (max - min) + min);
 }
 
 function remove(element) {
@@ -29,6 +28,8 @@ function print(text) {
 }
 
 
+
+
 function newCommand(name, func) {
     if (this.args[0] == name) {
         eval(func);
@@ -46,14 +47,16 @@ function runLine(code) {
     this.args = code.split(" ");
     if(this.args[this.args.length-1] != ","){
 
-        newCommand("help", 
-        `
+        newCommand("help",
+            `
             print("showing help:")
             print("clear - clears the terminal")
             print("unix - shows how many seconds it has been since the first of janurary 1970")
             print("milliunix - shows how many milliseconds it has been since the first of janurary 1970")
             print("date - shows the current date")
-            print("rand <min> <max> - prints a random number between <min> and <max>. (currently broken)")
+            print("rand <min> <max> - prints a random number between <min> and <max>.")
+            print("exit - leave the terminal and go back to the last page.")
+            
 
         `)
         newCommand("sudo", `print("You're already root!")`)
@@ -64,6 +67,14 @@ function runLine(code) {
         newCommand("rand", "print(getRandomInt(this.args[1], this.args[2]))")
         newCommand("exit", "history.go(-1)")
         newCommand("sitewarp", "window.location.href = this.args[1] + '.html'")
+        newCommand("rollcreds",
+        `
+            print("Harrinux v3.0-beta")
+            print("created by: harry")
+            print("modules used:")
+            print("moment.js by the moment.js team")
+            
+        `)
         
         
     }else{
@@ -103,7 +114,7 @@ function createinput(prompt) {
     document.body.appendChild(this.input);
 }
 
-printMulti(["Loaded version 2.0 'Monique'"]);
+printMulti(["Loaded version 3.0-beta 'Charllie'"]);
 
 window.setInterval(function() {
     if (document.getElementById("input") === null) {
