@@ -47,6 +47,9 @@ function runLine(code) {
     this.args = code.split(" ");
     if(this.args[this.args.length-1] != ","){
 
+
+        args.split
+
         newCommand("help",
             `
             print("showing help:")
@@ -56,6 +59,8 @@ function runLine(code) {
             print("date - shows the current date")
             print("rand <min> <max> - prints a random number between <min> and <max>.")
             print("exit - leave the terminal and go back to the last page.")
+            print("yt <id> - opens a youtube video in a new tab with the id "<id>")
+            print("ytsearch <query> - search for <query> on youtube")
             
 
         `)
@@ -68,18 +73,26 @@ function runLine(code) {
         newCommand("rand", "print(getRandomInt(this.args[1], this.args[2]))")
         newCommand("exit", "history.go(-1)")
         newCommand("sitewarp", "window.location.href = this.args[1] + '.html'")
-        newCommand("ytsearch", `window.open("https://www.youtube.com/results?search_query=" + this.args.slice(0, this.args.length - 1).join(" "))`)
-        newCommand("yt", `window.open("https://www.youtube.com/watch?v=" + this.args[1]`)
+        newCommand("ytsearch", `window.open("https://www.youtube.com/results?search_query=" + this.args.slice(1).join(" "))`)
+        newCommand("yt", `window.open("https://www.youtube.com/watch?v=" + this.args[1])`)
         newCommand("rollcreds",
         `
-            print("Harrinux v3.0-beta")
+            print("Harrinux v4.0-beta")
             print("created by: harry")
             print("modules used:")
             print("moment.js by the moment.js team")
             
         `)
+        newCommand("pastnames", `
         
+            print("current: v4.0-beta 'Galaxy'")
+            print("v3.0-beta 'Charllie'")
+            print("v2.0-beta 'Monique'")
+            print("v1.0-beta 'Harriet'")
         
+        `)
+        
+
     }else{
         [code.length] = this.args.slice(0, this.args.length - 1).join(" ");
 
@@ -117,7 +130,7 @@ function createinput(prompt) {
     document.body.appendChild(this.input);
 }
 
-printMulti(["Loaded version 3.0-beta 'Charllie'"]);
+printMulti(["Loaded version 4.0-beta 'Galaxy'"]);
 
 window.setInterval(function() {
     if (document.getElementById("input") === null) {
