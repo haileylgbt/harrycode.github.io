@@ -60,6 +60,7 @@ function runLine(code) {
 
         `)
         newCommand("sudo", `print("You're already root!")`)
+        newCommand("stanloona", `print("yes please")`)
         newCommand("clear", "clear()")
         newCommand("milliunix", "print(Date.now())")
         newCommand("unix", "print(Math.round(Date.now() / 1000))")
@@ -67,6 +68,8 @@ function runLine(code) {
         newCommand("rand", "print(getRandomInt(this.args[1], this.args[2]))")
         newCommand("exit", "history.go(-1)")
         newCommand("sitewarp", "window.location.href = this.args[1] + '.html'")
+        newCommand("ytsearch", `window.open("https://www.youtube.com/results?search_query=" + this.args.slice(0, this.args.length - 1).join(" "))`)
+        newCommand("yt", `window.open("https://www.youtube.com/watch?v=" + this.args[1]`)
         newCommand("rollcreds",
         `
             print("Harrinux v3.0-beta")
@@ -78,7 +81,7 @@ function runLine(code) {
         
         
     }else{
-      [code.length] = this.args.slice(0, this.args.length-1).join(" ");
+        [code.length] = this.args.slice(0, this.args.length - 1).join(" ");
 
         
     }

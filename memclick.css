@@ -1,5 +1,10 @@
-.button {
-  background-color: inherit; 
+#Bits {
+  font-size: 100px;
+}
+
+button {
+  font-family: inherit;
+  background-color: #99aab5; 
   border: 4px solid #dee069;
   border-radius: 8px;
   border: none;
@@ -12,3 +17,8 @@
   margin: 4px 2px;
   cursor: pointer;
 }
+
+.bitsDisplay {
+  text-align: center;
+}
+
