@@ -29,7 +29,6 @@ function print(text) {
 
 
 
-
 function newCommand(name, func) {
     if (this.args[0] == name) {
         eval(func);
@@ -47,9 +46,6 @@ function runLine(code) {
     this.args = code.split(" ");
     if(this.args[this.args.length-1] != ","){
 
-
-        args.split
-
         newCommand("help",
             `
             print("showing help:")
@@ -59,6 +55,7 @@ function runLine(code) {
             print("date - shows the current date")
             print("rand <min> <max> - prints a random number between <min> and <max>.")
             print("exit - leave the terminal and go back to the last page.")
+            
             print("yt <id> - opens a youtube video in a new tab with the id "<id>")
             print("ytsearch <query> - search for <query> on youtube")
             
