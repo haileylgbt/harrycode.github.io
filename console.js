@@ -55,8 +55,7 @@ function runLine(code) {
             print("date - shows the current date")
             print("rand <min> <max> - prints a random number between <min> and <max>.")
             print("exit - leave the terminal and go back to the last page.")
-            
-            print("yt <id> - opens a youtube video in a new tab with the id "<id>")
+            print("yt <id> - opens a youtube video in a new tab with the id '<id>'")
             print("ytsearch <query> - search for <query> on youtube")
             
 
@@ -127,7 +126,7 @@ function createinput(prompt) {
     document.body.appendChild(this.input);
 }
 
-printMulti(["Loaded version 4.0-beta 'Galaxy'"]);
+printMulti(["Loaded version 4.1-beta 'Galaxy'"]);
 
 window.setInterval(function() {
     if (document.getElementById("input") === null) {
