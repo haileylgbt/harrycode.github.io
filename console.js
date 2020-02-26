@@ -49,28 +49,35 @@ function runLine(code) {
         newCommand("help",
             `
             print("showing help:")
+            print("arguments: <needed> (optional)")
             print("clear - clears the terminal")
             print("unix - shows how many seconds it has been since the first of janurary 1970")
             print("milliunix - shows how many milliseconds it has been since the first of janurary 1970")
             print("date - shows the current date")
             print("rand <min> <max> - prints a random number between <min> and <max>.")
             print("exit - leave the terminal and go back to the last page.")
-            print("yt <id> - opens a youtube video in a new tab with the id '<id>'")
+            print("yt (id) - opens youtube or goes to the video with the id (id)")
             print("ytsearch <query> - search for <query> on youtube")
-            
+            print("google (query) - opens google or searches for (query)")
+            print("sgoogle (query) - opens google or safesearches for (query)")
+            print("eval <js> - execute any javascript. NOTE: THIS COMMAND HAS THE POWER TO BREAK THE TERMINAL. USE WITH CARE.")
 
         `)
         newCommand("sudo", `print("You're already root!")`)
         newCommand("stanloona", `print("yes please")`)
+        newCommand("eval", "eval(this.args.slice(1).join(' '))")
         newCommand("clear", "clear()")
         newCommand("milliunix", "print(Date.now())")
         newCommand("unix", "print(Math.round(Date.now() / 1000))")
         newCommand("date", "print(moment().format('MMMM Do YYYY'))")
+        newCommand("time", "print(moment().format('h:mma'))")
         newCommand("rand", "print(getRandomInt(this.args[1], this.args[2]))")
         newCommand("exit", "history.go(-1)")
         newCommand("sitewarp", "window.location.href = this.args[1] + '.html'")
         newCommand("ytsearch", `window.open("https://www.youtube.com/results?search_query=" + this.args.slice(1).join(" "))`)
         newCommand("yt", `window.open("https://www.youtube.com/watch?v=" + this.args[1])`)
+        newCommand("google", `window.open("https://google.com/search?q=" + this.args.slice(1).join(" "))`)
+        newCommand("sgoogle", `window.open("https://google.com/search?safe=strict&q=" + this.args.slice(1).join(" "))`)
         newCommand("rollcreds",
         `
             print("Harrinux v4.0-beta")
