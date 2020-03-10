@@ -530,3 +530,6 @@ let words = [
     "young"
 ]
 
+function newGame() {
+    
+}
